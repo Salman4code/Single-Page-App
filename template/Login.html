@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Single Page App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="local.js">
+  </script>
+  <style>
+    /*#display {
+      border: 2px solid black;
+      border-radius: 6px;
+      width: auto;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 50px;
+      text-align: center;
+    }*/
+
+    .arrange {
+      overflow: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="header well arrange">
+
+      <h3>
+        <center><i>Single Page App</i>
+          <center>
+      </h3>
+
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#login">Login</button>
+      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#Signup">SignUp</button>
+    </div>
+
+    <div class="modal fade" id="login" role="dialog">
+      <div class="modal-dialog">
+        <div class="row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-8">
+            <form class="well">
+
+              <div class="arrange">
+                <label for="usr">Username:</label>
+                <i class="glyphicon glyphicon-user"></i>
+                <input type="text" id="usr" class="form-control" placeholder="Email id" required><br><br>
+
+
+                <label for="pwd">Password:</label>
+                <i class="glyphicon glyphicon-lock"></i>
+                <input type="password" id="pwd" class="form-control" placeholder="Password" required><br>
+
+                <!-- <input type="checkbox" id="rememberme" value="rememberme">
+                <label for="rememberme">Remember Me</label><br><br> -->
+
+                <button type="submit" id="login1" class="btn btn-success">Login</button>
+                <button type="button" id="signup" class="btn btn-info" href="registrationform.html">SignUp</button>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="Signup" role="dailog">
+      <div class="modal-dailog">
+      <div class="row">
+
+        <div class="col-sm-3">
+          </div>
+        <div class="col-sm-5">
+
+          <form>
+
+            <div class="arrange well">
+              <div class="row">
+                 <h3>Registration Form</h3>
+              </div>
+              <label>Name::</label>
+              <input type="text" class="form-control" id="name">
+              <label>Email id::</label><input type="text" class="form-control" id="emid">
+              <label>Password::</label><input type="password" class="form-control" id="pswd">
+              <label>Retype Password::</label><input type="password" class="form-control" id="rpwd"><br>
+              <button type="button" class="btn btn-success" id="submit">Submit</button>
+              <button type="reset" class="btn btn-danger">Reset</button>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+          </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+
+</html>
