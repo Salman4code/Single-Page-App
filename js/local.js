@@ -1,22 +1,24 @@
-temp = [];
+var temp = [];
 $(document).ready(function() {
-if(sessionStorage.getItem("userEmail")!==null)
-{
-  call();
-  return;
-}
-$("#logOut").click(function(){
-  sessionStorage.getItem("userEmail").remove();
-});
+  if (sessionStorage.getItem("userEmail") !== null) {
+    call();
+
+  }
+  // $("#logOut").click(function(){
+  //   sessionStorage.getItem("userEmail").remove();
+  //   window.location.hash="";
+  //   location.reload();
+  //   return;
+  // });
 
   $("#login1").click(function() {
     //alert("hi");
     var flag = 0;
     var userEmail = $("#email_id").val();;
     var userPassword = $("#password").val();
-    sessionStorage.setItem('userEmail',userEmail);
-    // var obj = JSON.parse(localStorage.getItem("userdetail"));
-    var obj =JSON.parse(sessionStorage.getItem("userdetail"));
+    sessionStorage.setItem('userEmail', userEmail);
+    var obj = JSON.parse(localStorage.getItem("userdetail"));
+    //var obj =JSON.parse(sessionStorage.getItem("userdetail"));
     for (var i = 0; i < obj.length; i++) {
 
       if (userEmail == obj[i].email_id && userPassword == obj[i].password) {
@@ -25,23 +27,23 @@ $("#logOut").click(function(){
       }
     }
 
-    if (flag!=0) {
+    if (flag != 0) {
       console.log("login Successful");
       event.preventDefault();
       call();
       return;
     } else {
-      document.getElementById('d').innerHTML="";
+      document.getElementById('d').innerHTML = "";
       console.log("login fail");
-    //  $('#pwd').after("<span id='reset'>incorrect Password</span>");
-    document.getElementById('d').innerHTML="incorrect Password";
+      //  $('#pwd').after("<span id='reset'>incorrect Password</span>");
+      document.getElementById('d').innerHTML = "incorrect Password";
 
     }
   });
   $("#submit").click(function() {
 
-    // nm = JSON.parse(localStorage.getItem("userdetail"));
-    getdetail= JSON.parse(sessionStorage.getItem("userdetail"));
+    var getdetail = JSON.parse(localStorage.getItem("userdetail"));
+    //  getdetail= JSON.parse(sessionStorage.getItem("userdetail"));
     console.log(getdetail);
     if (getdetail !== null) {
       console.log("in");
@@ -49,7 +51,7 @@ $("#logOut").click(function(){
       detail();
       return;
     } else {
-      console.log("nm null");
+      console.log("detail null");
       detail();
 
     }
@@ -66,11 +68,10 @@ function detail() {
   var email_id = $("#email_id").val();
   var password = $("#Password").val();
   var rPassword = $("#rPassword").val();
-  if(name=="")
-  {
+  console.log(typeof(name));
+  if (name = "" || typeof(name) !== 'string') {
     alert("Enter your name");
-  }
-  else if (!re.test(email_id)) {
+  } else if (!re.test(email_id)) {
     alert("Invalid email");
     $('#emid').after('Please Enter Valid Email id');
     status = 1;
@@ -82,14 +83,22 @@ function detail() {
     alert("Password mismatch");
     status = 1;
   }
+  var obj = JSON.parse(localStorage.getItem("userdetail"));
+  for (var i = 0; i < obj.length; i++) {
+    if (email_id == obj[i].email_id) {
+      alert("email_id is already register");
+      return;
+    }
+
+  }
   if (status == 0) {
     var userinfo = new input(name, email_id, password, rPassword);
     console.log(userinfo);
     temp[temp.length] = userinfo;
     console.log(temp.length);
     if (typeof(Storage) !== undefined) {
-      // localStorage.setItem('userdetail', JSON.stringify(temp));
-      sessionStorage.setItem('userdetail',JSON.stringify(temp));
+      localStorage.setItem('userdetail', JSON.stringify(temp));
+      //sessionStorage.setItem('userdetail',JSON.stringify(temp));
     }
     event.preventDefault();
     call();

@@ -121,12 +121,11 @@ var spaRoutes = {
     "#signup": function(url) {
         console.log('signup was called...');
         utils.renderPageTemplate("#signup-page-template");
+    },
+    "#welcomepage": function(url){
+      console.log('welcome page was called');
+      utils.renderPageTemplate("#welcome-page-template");
     }
-    // "#welcomepage": function(url)
-    // {
-    //   console.log('welcome page was called');
-    //   utils.renderPageTemplate("#welcome-page-template");
-    // }
 };
 
 // Create a new instance of the router
