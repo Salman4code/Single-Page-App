@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var temp = [];
 $(document).ready(function() {
   if (sessionStorage.getItem("userEmail") !== null) {
@@ -22,12 +23,14 @@ $(document).ready(function() {
     for (var i = 0; i < obj.length; i++) {
 
       if (userEmail == obj[i].email_id && userPassword == obj[i].password) {
+
         flag++;
         break;
       }
     }
 
     if (flag != 0) {
+
       console.log("login Successful");
       event.preventDefault();
       call();
@@ -41,7 +44,6 @@ $(document).ready(function() {
     }
   });
   $("#submit").click(function() {
-
     var getdetail = JSON.parse(localStorage.getItem("userdetail"));
     //  getdetail= JSON.parse(sessionStorage.getItem("userdetail"));
     console.log(getdetail);
@@ -53,6 +55,7 @@ $(document).ready(function() {
     } else {
       console.log("detail null");
       detail();
+
 
     }
 
@@ -93,12 +96,14 @@ function detail() {
   }
   if (status == 0) {
     var userinfo = new input(name, email_id, password, rPassword);
+
     console.log(userinfo);
     temp[temp.length] = userinfo;
     console.log(temp.length);
     if (typeof(Storage) !== undefined) {
       localStorage.setItem('userdetail', JSON.stringify(temp));
       //sessionStorage.setItem('userdetail',JSON.stringify(temp));
+
     }
     event.preventDefault();
     call();
