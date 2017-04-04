@@ -1,6 +1,7 @@
 // Location polyfill for ie, ff < 21.0 and safari
 if (typeof window.location.origin === "undefined"){
     window.location.origin = window.location.protocol + "//" + window.location.host;
+
 }
 
 // Utility (helper) functions
@@ -84,6 +85,7 @@ var router = {
 
         // Get the keyword from the url.
         var keyName = window.location.hash.split("/")[0];
+        console.log(keyName);
 
         // Grab anything after the hash
         var url = window.location.hash;
@@ -97,6 +99,7 @@ var router = {
         // Call the the function
         // by key name
         if (this.routes[keyName]) {
+          console.log(this.routes[keyName]);
             this.routes[keyName](url);
 
             // Render the error page if the

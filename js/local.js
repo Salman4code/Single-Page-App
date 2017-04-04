@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 var temp = [];
 $(document).ready(function() {
   if (sessionStorage.getItem("userEmail") !== null) {
@@ -74,6 +74,7 @@ function detail() {
   console.log(typeof(name));
   if (name = "" || typeof(name) !== 'string') {
     alert("Enter your name");
+    return;                     
   } else if (!re.test(email_id)) {
     alert("Invalid email");
     $('#emid').after('Please Enter Valid Email id');
